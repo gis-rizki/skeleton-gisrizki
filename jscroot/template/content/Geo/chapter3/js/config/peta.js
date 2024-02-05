@@ -3,18 +3,26 @@ import View from 'https://cdn.skypack.dev/ol/View.js';
 import TileLayer from 'https://cdn.skypack.dev/ol/layer/Tile.js';
 import XYZ from 'https://cdn.skypack.dev/ol/source/XYZ.js';
 import OSM from 'https://cdn.skypack.dev/ol/source/OSM.js';
-import {fromLonLat} from 'https://cdn.skypack.dev/ol/proj.js';
+import {
+  fromLonLat
+} from 'https://cdn.skypack.dev/ol/proj.js';
 import Overlay from 'https://cdn.skypack.dev/ol/Overlay.js';
-import {container} from 'https://jscroot.github.io/element/croot.js';
+import {
+  container
+} from 'https://jscroot.github.io/element/croot.js';
 
-const attributions = '';
+const attributions = '<a href="https://petapedia.github.io/" target="_blank">&copy; PetaPedia Indonesia</a> ';
 
 const place = [106.83303856987703, -6.479261060743909];
 
-export let idmarker = {id: 1};
+export let idmarker = {
+  id: 1
+};
 
 const basemap = new TileLayer({
-  source: new OSM({attributions: attributions,}),
+  source: new OSM({
+    attributions: attributions,
+  }),
 });
 
 const defaultstartmap = new View({
@@ -41,10 +49,10 @@ export const popupinfo = new Overlay({
 });
 
 export let map = new Map({
-  overlays: [overlay, popupinfo],
-  target: 'map',
   layers: [
     basemap
   ],
+  overlays: [overlay, popupinfo],
+  target: 'map',
   view: defaultstartmap,
 });
